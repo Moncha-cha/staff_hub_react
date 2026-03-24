@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/Footer";
 
 // MOCKING DATABASE, Fetch simulace
 const assets = [
@@ -164,8 +165,7 @@ const currentEmployee = {
 function App() {
   return (
     <div className="app-container">
-      <h1>Staff Hub v Reactu 🚀</h1>
-      <p>Tady začneme skládat Aside a Main sekci.</p>
+      <Footer />
     </div>
   );
 }
