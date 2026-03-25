@@ -16,12 +16,20 @@
   box-sizing: border-box;
 }
 
+/* react container */
+
+.app-container {
+  display: grid;
+  grid-template-columns: 280px 1fr; /* Levý panel 280px, pravá část zbytek */
+  min-height: 100vh;
+}
+
 body {
   font-family: sans-serif;
   background-color: var(--bg-main);
   color: var(--text-dark);
-  display: grid;
-  grid-template-columns: 280px 1fr;
+  /*display: grid;
+  grid-template-columns: 280px 1fr; */
   min-height: 100vh;
 }
 
@@ -158,6 +166,13 @@ main {
 
 /* Skupina pro tlačítka filtru / IN PROGRESS */
 
+.filter-group {
+  display: flex;
+  align-items: center; /* Srovná text "Filtrovat" a tlačítka do jedné roviny */
+  gap: 1rem; /* Udělá hezkou mezeru mezi všemi prvky */
+  margin-top: 1rem; /* Trochu to odsune od toho hledání nahoře */
+}
+
 /* --- 4. GRID A KARTY --- */
 #asset-grid {
   display: grid;
@@ -269,9 +284,10 @@ main {
   }
 }
 
-/* --- 6. RESPONSIVE --- */
+/* --- 6. RESPONSIVE --- v reactu mam kontejner, neni to rovnou na body, takze musim opravit */
+
 @media (max-width: 800px) {
-  body {
+  .app-container {
     grid-template-columns: 1fr;
   }
   aside {
@@ -285,5 +301,11 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+  .filter-group .filter-btn {
+    width: 100%;
+  }
+  .search-bar input {
+    width: 100%;
   }
 }

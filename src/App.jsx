@@ -1,4 +1,8 @@
 import "./App.css";
+
+import Aside from "./components/Aside";
+import ControlPanel from "./components/ControlPanel";
+import AssetGrid from "./components/AssetGrid";
 import Footer from "./components/Footer";
 
 // MOCKING DATABASE, Fetch simulace
@@ -165,7 +169,13 @@ const currentEmployee = {
 function App() {
   return (
     <div className="app-container">
-      <Footer />
+      <Aside />
+
+      <main>
+        <ControlPanel employee={currentEmployee} />
+        <AssetGrid assets={assets} />
+        <Footer />
+      </main>
     </div>
   );
 }
