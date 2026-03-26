@@ -173,7 +173,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const [assets, setAssets] = useState(initialAssets); // Simulace načítání dat z DB, setAssets pro mozne úpravy stavu majetku
+  const [assets, _setAssets] = useState(initialAssets); // Simulace načítání dat z DB, _setAssets pro budouci upravy, _ je tam kvuli slintu
   const [searchText, setSearchText] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
