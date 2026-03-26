@@ -24,7 +24,7 @@ function Aside({ onOpenLogin, onLogout, isAdmin }) {
       <div className="admin-section">
         <hr />
         <button
-          className={`sidebar-btn ${isAdmin ? "logout-mode" : ""}`}
+          className={`sidebar-btn ${isAdmin ? "logout-mode" : ""}`} // Pokud je isAdmin true, přidá se k němu druhá třída logout-mode. Pokud je false, nepřidá se nic
           onClick={isAdmin ? onLogout : onOpenLogin}
         >
           {isAdmin ? "Odhlásit se" : "Režim správce"}
