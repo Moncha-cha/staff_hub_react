@@ -1,4 +1,10 @@
-function ControlPanel({ employee }) {
+function ControlPanel({
+  employee,
+  searchText,
+  setSearchText,
+  activeFilter,
+  setActiveFilter,
+}) {
   return (
     <header className="main-header">
       <h2>
@@ -11,22 +17,31 @@ function ControlPanel({ employee }) {
       </h2>
 
       <form action="" className="search-bar">
-        <label for="search-input">Hledat</label>
-        <input type="text" id="search-input" />
+        <label htmlFor="search-input">Hledat</label>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Hledat majetek"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
       </form>
       <div className="filter-group">
         <span>Filtrovat</span>
-        <button className="filter-btn" data-status="all">
-          Vše <span>(0)</span>
+        <button className="filter-btn" onClick={() => setActiveFilter("all")}>
+          Vše (0)
         </button>
-        <button className="filter-btn" data-status="ok">
-          V pořádku <span>(0)</span>
+        <button className="filter-btn" onClick={() => setActiveFilter("ok")}>
+          V pořádku (0)
         </button>
-        <button className="filter-btn" data-status="pending">
-          Fasování <span>(0)</span>
+        <button
+          className="filter-btn"
+          onClick={() => setActiveFilter("pending")}
+        >
+          Fasování (0)
         </button>
-        <button className="filter-btn" data-status="issue">
-          Nefunkční <span>(0)</span>
+        <button className="filter-btn" onClick={() => setActiveFilter("issue")}>
+          Nefunkční (0)
         </button>
       </div>
     </header>

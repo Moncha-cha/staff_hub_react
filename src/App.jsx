@@ -172,13 +172,33 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
+  const filteredAssets = assets.filter((asset) => {
+    // Kontrola 1: Odpovídá textu v hledání?
+    const matchesSearch = asset.name
+      .toLowerCase()
+      .includes(searchText.toLowerCase());
+
+    // Kontrola 2: Odpovídá vybranému tlačítku (nebo je vybráno "Vše")?
+    const matchesFilter =
+      activeFilter === "all" || asset.status_id === activeFilter;
+
+    // Karta se ukáže jen, když projde oběma kontrolami najednou
+    return matchesSearch && matchesFilter;
+  });
+
   return (
     <div className="app-container">
       <Aside />
 
       <main>
-        <ControlPanel employee={currentEmployee} />
-        <AssetGrid assets={assets} />
+        <ControlPanel
+          employee={currentEmployee}
+          searchText={searchText}
+          setSearchText={setSearchText}
+          activeFilter={activeFilter}
+          setActiveFilter={setActiveFilter}
+        />
+        <AssetGrid assets={filteredAssets} />
         <Footer />
       </main>
     </div>

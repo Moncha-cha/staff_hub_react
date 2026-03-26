@@ -296,6 +296,7 @@ main {
   }
   main .main-header {
     grid-template-columns: 1fr;
+    align-items: stretch;
   }
   .filter-group {
     display: flex;
