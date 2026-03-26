@@ -16,7 +16,7 @@ function ControlPanel({
         </small>
       </h2>
 
-      <form action="" className="search-bar">
+      <form className="search-bar">
         <label htmlFor="search-input">Hledat</label>
         <input
           type="text"

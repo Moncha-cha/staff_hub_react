@@ -3,7 +3,7 @@ function AssetCard({ asset }) {
     <div className="asset-card">
       <div className="card-title-row">
         <h3>{asset.name}</h3>
-        <span className="xcategory-tag">{asset.category}</span>
+        <span className="category-tag">{asset.category}</span>
       </div>
 
       <dl className="asset-details">

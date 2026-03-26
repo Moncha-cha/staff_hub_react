@@ -173,16 +173,15 @@ function App() {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filteredAssets = assets.filter((asset) => {
-    // Kontrola 1: Odpovídá textu v hledání?
     const matchesSearch = asset.name
       .toLowerCase()
       .includes(searchText.toLowerCase());
 
-    // Kontrola 2: Odpovídá vybranému tlačítku (nebo je vybráno "Vše")?
     const matchesFilter =
-      activeFilter === "all" || asset.status_id === activeFilter;
+      activeFilter === "all" ||
+      asset.status_id === activeFilter ||
+      asset.category === activeFilter;
 
-    // Karta se ukáže jen, když projde oběma kontrolami najednou
     return matchesSearch && matchesFilter;
   });
 
