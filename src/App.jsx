@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 
+import LoginModal from "./components/LoginModal";
+
 import Aside from "./components/Aside";
 import ControlPanel from "./components/ControlPanel";
 import AssetGrid from "./components/AssetGrid";
@@ -197,7 +199,11 @@ function App() {
 
   return (
     <div className="app-container">
-      <Aside />
+      <Aside
+        isAdmin={isAdmin}
+        onOpenLogin={() => setShowModal(true)}
+        onLogout={() => setIsAdmin(false)}
+      />
 
       <main>
         <ControlPanel
@@ -211,6 +217,15 @@ function App() {
         <AssetGrid assets={filteredAssets} isAdmin={isAdmin} />
         <Footer />
       </main>
+
+      <LoginModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        onLogin={() => {
+          setIsAdmin(true);
+          setShowModal(false);
+        }}
+      />
     </div>
   );
 }

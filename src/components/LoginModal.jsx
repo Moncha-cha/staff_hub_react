@@ -7,7 +7,7 @@ function LoginModal({ isOpen, onClose, onLogin }) {
         <h3>Přihlášení správce</h3>
         <input type="password" placeholder="Zadejte heslo..." id="admin-pass" />
         <div className="modal-buttons">
-          <button onClick={() => onLogin(true)}>Přihlásit</button>
+          <button onClick={() => onLogin()}>Přihlásit</button>
           <button onClick={onClose}>Zrušit</button>
         </div>
       </div>

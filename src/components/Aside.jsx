@@ -1,4 +1,4 @@
-function Aside() {
+function Aside({ onOpenLogin, onLogout, isAdmin }) {
   return (
     <aside>
       <div className="sidebar-top">
@@ -23,8 +23,11 @@ function Aside() {
 
       <div className="admin-section">
         <hr />
-        <button id="admin-toggle-btn" className="sidebar-btn">
-          Režim správce
+        <button
+          className={`sidebar-btn ${isAdmin ? "logout-mode" : ""}`}
+          onClick={isAdmin ? onLogout : onOpenLogin}
+        >
+          {isAdmin ? "Odhlásit se" : "Režim správce"}
         </button>
       </div>
     </aside>
