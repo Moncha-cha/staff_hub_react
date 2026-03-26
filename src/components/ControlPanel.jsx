@@ -2,8 +2,9 @@ function ControlPanel({
   employee,
   searchText,
   setSearchText,
-  activeFilter,
+  /* activeFilter  nevyužívám, ale nechám pro budoucí rozšíření */
   setActiveFilter,
+  statusCounts,
 }) {
   return (
     <header className="main-header">
@@ -29,19 +30,19 @@ function ControlPanel({
       <div className="filter-group">
         <span>Filtrovat</span>
         <button className="filter-btn" onClick={() => setActiveFilter("all")}>
-          Vše (0)
+          Vše ({statusCounts.all})
         </button>
         <button className="filter-btn" onClick={() => setActiveFilter("ok")}>
-          V pořádku (0)
+          V pořádku ({statusCounts.ok})
         </button>
         <button
           className="filter-btn"
           onClick={() => setActiveFilter("pending")}
         >
-          Fasování (0)
+          Fasování ({statusCounts.pending})
         </button>
         <button className="filter-btn" onClick={() => setActiveFilter("issue")}>
-          Nefunkční (0)
+          Nefunkční ({statusCounts.issue})
         </button>
       </div>
     </header>

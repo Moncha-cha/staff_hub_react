@@ -253,7 +253,6 @@ main {
     justify-content: flex-end;
 
     .admin-btn {
-      display: none;
       padding: 6px 12px;
       background-color: var(--white);
       border: 1px solid var(--border-color);

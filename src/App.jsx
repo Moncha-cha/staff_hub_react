@@ -168,9 +168,19 @@ const currentEmployee = {
 };
 
 function App() {
-  const [assets, setAssets] = useState(initialAssets);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const [assets, setAssets] = useState(initialAssets); // Simulace načítání dat z DB, setAssets pro mozne úpravy stavu majetku
   const [searchText, setSearchText] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
+
+  const statusCounts = {
+    all: assets.length,
+    ok: assets.filter((a) => a.status_id === "ok").length,
+    pending: assets.filter((a) => a.status_id === "pending").length,
+    issue: assets.filter((a) => a.status_id === "issue").length,
+  };
 
   const filteredAssets = assets.filter((asset) => {
     const matchesSearch = asset.name
@@ -194,10 +204,11 @@ function App() {
           employee={currentEmployee}
           searchText={searchText}
           setSearchText={setSearchText}
+          statusCounts={statusCounts}
           activeFilter={activeFilter}
           setActiveFilter={setActiveFilter}
         />
-        <AssetGrid assets={filteredAssets} />
+        <AssetGrid assets={filteredAssets} isAdmin={isAdmin} />
         <Footer />
       </main>
     </div>

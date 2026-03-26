@@ -1,4 +1,4 @@
-function AssetCard({ asset }) {
+function AssetCard({ asset, isAdmin }) {
   return (
     <div className="asset-card">
       <div className="card-title-row">
@@ -19,10 +19,11 @@ function AssetCard({ asset }) {
           {asset.status_text}
         </span>
       </div>
-
-      <div className="card-footer">
-        <button className="admin-btn">Spravovat</button>
-      </div>
+      {isAdmin && (
+        <div className="card-footer">
+          <button className="admin-btn">Spravovat</button>
+        </div>
+      )}
     </div>
   );
 }
