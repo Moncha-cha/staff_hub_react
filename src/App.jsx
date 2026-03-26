@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 
 import Aside from "./components/Aside";
 import ControlPanel from "./components/ControlPanel";
@@ -6,7 +7,7 @@ import AssetGrid from "./components/AssetGrid";
 import Footer from "./components/Footer";
 
 // MOCKING DATABASE, Fetch simulace
-const assets = [
+const initialAssets = [
   {
     id: "1-ACC",
     name: "Monitor Acer 120Hz",
@@ -167,6 +168,10 @@ const currentEmployee = {
 };
 
 function App() {
+  const [assets, setAssets] = useState(initialAssets);
+  const [searchText, setSearchText] = useState("");
+  const [activeFilter, setActiveFilter] = useState("all");
+
   return (
     <div className="app-container">
       <Aside />
